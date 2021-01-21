@@ -1,5 +1,5 @@
 const Index = () => {
-  return <h1>Hello world!</h1>;
+  return <h1>Time: {new Date().toLocaleString()}</h1>;
 };
 
 export default Index;

@@ -1,17 +1,10 @@
-import { defineCustomElements } from "@ionic/pwa-elements/loader";
-import { Plugins, CameraResultType } from "@capacitor/core";
-import { useEffect, useState } from "react";
-
-const { Camera } = Plugins;
+import { Camera, CameraResultType } from "@capacitor/camera";
+import { useState } from "react";
 
 const Index = () => {
   const [imagePath, setImagePath] = useState("");
 
-  useEffect(() => {
-    defineCustomElements(window);
-  }, []);
-
-  async function takePicture() {
+  const takePicture = async () => {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
@@ -19,7 +12,7 @@ const Index = () => {
     });
 
     setImagePath(image.webPath);
-  }
+  };
 
   if (imagePath !== "") {
     return (
@@ -36,9 +29,8 @@ const Index = () => {
           takePicture();
         }}
       >
-        Take photo
+        Take photoo
       </button>
-      ;
     </div>
   );
 };
